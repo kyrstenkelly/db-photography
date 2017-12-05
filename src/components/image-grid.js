@@ -1,4 +1,5 @@
 import React, { Component }   from 'react';
+import Measure                from 'react-measure';
 import Image                  from './image';
 
 import sanDiego       from '../images/san-diego.jpg';
@@ -10,19 +11,49 @@ import kelseyGarret   from '../images/kelsey-garret.jpg';
 import thailand       from '../images/thailand.jpg';
 import thailand2      from '../images/thailand-2.jpg';
 
+const images = [ sanDiego, sanDiego2, ciara, ciara2,
+  kelsey, kelseyGarret, thailand, thailand2 ];
+
 class ImageGrid extends Component {
+  state = {
+    dimensions: {
+      width: -1,
+      height: -1
+    }
+  }
+
   render() {
+    const { width, height } = this.state.dimensions;
+    let imageSize;
+
+    if (width >= 1000) {
+      imageSize = width / 3;
+    } else {
+      imageSize = width / 2;
+    }
+
+    const imageDivs = images.map(image => {
+      return (
+        <Image
+          src={image}
+          size={imageSize}
+        />
+      );
+    });
+
     return (
-      <div className='grid'>
-        <Image src={sanDiego} />
-        <Image src={sanDiego2} />
-        <Image src={ciara} />
-        <Image src={ciara2} />
-        <Image src={kelsey} />
-        <Image src={kelseyGarret} />
-        <Image src={thailand} />
-        <Image src={thailand2} />
-      </div>
+      <Measure
+        bounds
+        onResize={(contentRect) => {
+          this.setState({ dimensions: contentRect.bounds })
+        }}
+      >
+        {({ measureRef }) =>
+          <div ref={measureRef} className='grid'>
+            {imageDivs}
+          </div>
+        }
+      </Measure>
     );
   }
 }

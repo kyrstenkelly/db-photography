@@ -3,10 +3,6 @@ import Measure              from 'react-measure';
 
 class Image extends Component {
   state = {
-    dimensions: {
-      width: -1,
-      height: -1
-    },
     hovering: false
   }
 
@@ -15,43 +11,34 @@ class Image extends Component {
   }
 
   render() {
-    const { width, height } = this.state.dimensions;
     const { hovering } = this.state;
+    const { size } = this.props;
 
     return (
-      <Measure
-        bounds
-        onResize={(contentRect) => {
-          this.setState({ dimensions: contentRect.bounds })
+      <div
+        className='grid-image'
+        style={{
+          backgroundImage: `url(${this.props.src})`,
+          backgroundPosition: 'center center',
+          backgroundSize: 'cover',
+          width: size,
+          height: size
         }}
+        onMouseOver={() => this.handleHover(true)}
+        onMouseLeave={() => this.handleHover(false)}
       >
-        {({ measureRef }) =>
-          <div
-            ref={measureRef}
-            className='grid-image'
-            style={{
-              backgroundImage: `url(${this.props.src})`,
-              backgroundPosition: 'center center',
-              backgroundSize: 'cover',
-              height: width
-            }}
-            onMouseOver={() => this.handleHover(true)}
-            onMouseLeave={() => this.handleHover(false)}
-          >
-            <div
-              className='grid-image--overlay'
-              style={{
-                height: width,
-                width: width
-              }}
-            >
-              { hovering &&
-                <div>Damn, what a great photo</div>
-              }
-            </div>
-          </div>
-        }
-      </Measure>
+        <div
+          className='grid-image--overlay'
+          style={{
+            height: size,
+            width: size
+          }}
+        >
+          { hovering &&
+            <div>Damn, what a great photo</div>
+          }
+        </div>
+      </div>
     );
   }
 }

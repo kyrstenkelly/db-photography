@@ -18,19 +18,17 @@ img {
 .grid {
   display: flex;
   flex-wrap: wrap; }
-  .grid .grid-image {
-    width: 33.33%; }
-    .grid .grid-image .grid-image--overlay {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      transition: background-color .15s ease-in;
-      background-color: transparent;
-      color: #e6e6e6;
-      font-weight: 100; }
-      .grid .grid-image .grid-image--overlay:hover {
-        background-color: rgba(0, 0, 0, 0.7); }
+  .grid .grid-image .grid-image--overlay {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    transition: background-color .15s ease-in;
+    background-color: transparent;
+    color: #e6e6e6;
+    font-weight: 100; }
+    .grid .grid-image .grid-image--overlay:hover {
+      background-color: rgba(0, 0, 0, 0.7); }
 
 body {
   font-family: 'Open Sans', sans-serif;
