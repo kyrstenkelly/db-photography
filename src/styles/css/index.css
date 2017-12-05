@@ -1,0 +1,19 @@
+.app {
+  text-align: center; }
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20px; }
+  .app-header .app-title {
+    font-family: 'Lobster', cursive;
+    font-size: 1.5em; }
+
+.image {
+  width: 100%; }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0; }

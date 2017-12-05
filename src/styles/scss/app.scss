@@ -1,0 +1,16 @@
+.app {
+  text-align: center;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20px;
+
+  .app-title {
+    font-family: 'Lobster', cursive;
+    font-size: 1.5em;
+  }
+}
