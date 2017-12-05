@@ -1,0 +1,24 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+
+  .grid-image {
+    width: 33.33%;
+
+    .grid-image--overlay {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+
+      transition: background-color .15s ease-in;
+      background-color: rgba(0,0,0,0);
+      color: $light-gray;
+      font-weight: 100;
+
+      &:hover {
+        background-color: rgba(0,0,0,0.7);
+      }
+    }
+  }
+}

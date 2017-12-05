@@ -3,6 +3,7 @@
 
 .app-header {
   display: flex;
+  background: white;
   justify-content: space-between;
   box-sizing: border-box;
   width: 100%;

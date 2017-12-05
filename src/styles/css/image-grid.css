@@ -1,0 +1,10 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap; }
+  .grid .grid-image {
+    width: 33.33%; }
+    .grid .grid-image .grid-image--hover {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center; }
