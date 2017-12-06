@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { StickyContainer, Sticky } from 'react-sticky';
 
-import ImageGrid from './components/image-grid';
-
 class App extends Component {
   render() {
     return (

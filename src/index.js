@@ -13,7 +13,8 @@ ReactDOM.render((
   <BrowserRouter>
     <App>
       <Route exact={true} path="/" component={Home} />
-      <Route path="/album" component={Album} />
+      <Route exact={true} path="/album" component={Home} />
+      <Route path="/album/:id" component={Album} />
     </App>
   </BrowserRouter>
 ), document.getElementById('root'))

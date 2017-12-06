@@ -14,6 +14,7 @@ class ImageGrid extends Component {
 
   render() {
     const { width, height } = this.state.dimensions;
+    const { images } = this.props;
     let imageSize;
 
     if (width >= 1000) {
@@ -22,12 +23,14 @@ class ImageGrid extends Component {
       imageSize = width / 2;
     }
 
-    const imageDivs = albums.map(album => {
+    const imageDivs = images.map(image => {
       return (
         <Image
-          caption={album.name}
-          src={album.images[0]}
+          key={image.source}
+          caption={image.caption}
+          src={image.source}
           size={imageSize}
+          onClick={image.onClick}
         />
       );
     });

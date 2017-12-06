@@ -6,38 +6,47 @@ class Image extends Component {
     hovering: false
   }
 
+  handleClick() {
+    if (this.props.onClick) {
+      this.props.onClick();
+    }
+  }
+
   handleHover(hover) {
     this.setState({hovering: hover});
   }
 
   render() {
     const { hovering } = this.state;
-    const { caption, size } = this.props;
+    const { caption, size, src } = this.props;
 
     return (
       <div
         className='grid-image'
         style={{
-          backgroundImage: `url(${this.props.src})`,
+          backgroundImage: `url(${src})`,
           backgroundPosition: 'center center',
           backgroundSize: 'cover',
           width: size,
           height: size
         }}
+        onClick={() => this.handleClick()}
         onMouseOver={() => this.handleHover(true)}
         onMouseLeave={() => this.handleHover(false)}
       >
-        <div
-          className='grid-image--overlay'
-          style={{
-            height: size,
-            width: size
-          }}
-        >
-          { hovering &&
-            <div>{caption}</div>
-          }
-        </div>
+        { caption &&
+          <div
+            className='grid-image--overlay'
+            style={{
+              height: size,
+              width: size
+            }}
+          >
+            { hovering &&
+              <div>{caption}</div>
+            }
+          </div>
+        }
       </div>
     );
   }
