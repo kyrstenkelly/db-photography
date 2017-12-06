@@ -2,17 +2,7 @@ import React, { Component }   from 'react';
 import Measure                from 'react-measure';
 import Image                  from './image';
 
-import sanDiego       from '../images/san-diego.jpg';
-import sanDiego2      from '../images/san-diego-2.jpg';
-import ciara          from '../images/ciara.jpg';
-import ciara2         from '../images/ciara-2.jpg';
-import kelsey         from '../images/kelsey.jpg';
-import kelseyGarret   from '../images/kelsey-garret.jpg';
-import thailand       from '../images/thailand.jpg';
-import thailand2      from '../images/thailand-2.jpg';
-
-const images = [ sanDiego, sanDiego2, ciara, ciara2,
-  kelsey, kelseyGarret, thailand, thailand2 ];
+import albums                from './album-data';
 
 class ImageGrid extends Component {
   state = {
@@ -32,10 +22,11 @@ class ImageGrid extends Component {
       imageSize = width / 2;
     }
 
-    const imageDivs = images.map(image => {
+    const imageDivs = albums.map(album => {
       return (
         <Image
-          src={image}
+          caption={album.name}
+          src={album.images[0]}
           size={imageSize}
         />
       );

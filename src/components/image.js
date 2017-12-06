@@ -12,7 +12,7 @@ class Image extends Component {
 
   render() {
     const { hovering } = this.state;
-    const { size } = this.props;
+    const { caption, size } = this.props;
 
     return (
       <div
@@ -35,7 +35,7 @@ class Image extends Component {
           }}
         >
           { hovering &&
-            <div>Damn, what a great photo</div>
+            <div>{caption}</div>
           }
         </div>
       </div>

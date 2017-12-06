@@ -20,8 +20,8 @@ class App extends Component {
           }
         </Sticky>
 
-        <div className="app">
-          <ImageGrid />
+        <div>
+          {this.props.children}
         </div>
       </StickyContainer>
     );

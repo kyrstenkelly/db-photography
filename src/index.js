@@ -1,8 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/css/index.css';
-import App from './App';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import App from './App';
+import Album from './views/album';
+import Home from './views/home';
+
+import './styles/css/index.css';
+
+ReactDOM.render((
+  <BrowserRouter>
+    <App>
+      <Route exact={true} path="/" component={Home} />
+      <Route path="/album" component={Album} />
+    </App>
+  </BrowserRouter>
+), document.getElementById('root'))
+
 registerServiceWorker();
